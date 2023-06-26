@@ -17,6 +17,6 @@ jobs:
       - name: Test the code
         run: npm test
       - name: Build Project
-        run: npm run Build
+        run: npm run build
       - name: deploy
         run: echo "Deployed..."
