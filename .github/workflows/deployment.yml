@@ -1,0 +1,22 @@
+name: CI-CD
+on: [push, workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the Code
+        uses: actions/checkout@v3
+      - name: Setup Node JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm ci
+      - name: Lint the code
+        run: npm run lint
+      - name: Test the code
+        run: npm test
+      - name: Build Project
+        run: npm run Build
+      - name: deploy
+        run: echo "Deployed..."
